@@ -1,0 +1,23 @@
+{
+  "name": "winterchiropractor",
+  "version": "1.0.0",
+  "description": "Developer test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch assets/scss/style.scss style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesmonsarvas/Winter-Chiropractor.git"
+  },
+  "author": "James Monsarvas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesmonsarvas/Winter-Chiropractor/issues"
+  },
+  "homepage": "https://github.com/jamesmonsarvas/Winter-Chiropractor#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
