@@ -16,33 +16,792 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 // Import normalize.css to normalize all the elements.
 @import 'assets/css/normalize.css';
+@import 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap';
 
 /**
  * Defaults/Glboal
  */
 
-body {}
+html,
+body {
+    position: relative;
+    height: auto;
+    font-family: 'Raleway', sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    line-height: 13px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    max-width: 715px;
+    margin: 0 auto;
+}
+
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    font-weight: 600;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 23px;
+}
+
+h3 {
+    font-size: 12px;
+}
+
+h4 {
+    font-size: 10px;
+}
+
+h5 {
+    font-size: 8px;
+}
+
+h6 {
+    font-size: 7px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Custom Grid System Using Flex
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.col {
+    padding: 0 15px;
+}
+
+.col-1 {
+    flex: 0 0 8.333333333333333%;
+    max-width: 8.333333333333333%;
+}
+
+.col-2 {
+    flex: 0 0 16.66666666666667%;
+    max-width: 16.66666666666667%;
+}
+
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-4 {
+    flex: 0 0 33.33333333333333%;
+    max-width: 33.33333333333333%;
+}
+
+.col-5 {
+    flex: 0 0 41.66666666666667%;
+    max-width: 41.66666666666667%;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-7 {
+    flex: 0 0 58.3333333333333%;
+    max-width: 58.3333333333333%;
+}
+
+.col-8 {
+    flex: 0 0 66.66666666666667%;
+    max-width: 66.66666666666667%;
+}
+
+.col-9 {
+    flex: 0 0 75.00000000000002%;
+    max-width: 75.00000000000002%;
+}
+
+.col-10 {
+    flex: 0 0 83.33333333333333%;
+    max-width: 83.33333333333333%;
+}
+
+.col-11 {
+    flex: 0 0 91.66666666666666%;
+    max-width: 91.66666666666666%;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/**
+ * Wrapper
+ */
+
+.container-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+
+    .side-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45px;
+        height: 100%;
+        padding: 13.5px 12.5px;
+        background-color: #0d1f2d;
+
+        .hamburder-menu {
+            position: fixed;
+
+            a {
+                span {
+                    display: block;
+                    color: #9b9b9b;
+                    font-family: Helvetica;
+                    font-size: 7px;
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+
+                img {
+                    max-width: 22px;
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        width: calc(100% - 45px);
+        margin-left: 45px;
+    }
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 /**
  * Header
  */
 
-#header {}
+#primary-menu {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+
+    &.show-menu {
+        z-index: 9999;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .close {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .menu {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style: none;
+
+        li {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+
+            a {
+                color: #fff;
+                font-size: 20px;
+                line-height: 1.2;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 45px);
+    padding: 7.5px 25.5px;
+    background-color: rgba(255, 255, 255, 0.17);
+
+    .header-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .site-branding,
+        .phone-number {
+            flex: 1;
+        }
+
+        .site-branding {
+
+            .site-logo img {
+                width: 145px;
+                height: 33px;
+            }
+
+            .site-title,
+            .site-description {
+                display: none;
+            }
+        }
+
+        .phone-number {
+            text-align: right;
+
+            a {
+                color: #fff;
+                font-size: 10px;
+                font-weight: 400;
+                letter-spacing: 0.35px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
 
 /**
  * Content
  */
 
-#content {}
+#banner {
+    img {
+        width: 100%;
+    }
+}
+
+#content {
+
+    #about-andrew,
+    #our-services,
+    #testimonials,
+    #our-partners {
+        .heading {
+            text-align: center;
+        }
+    }
+
+    #about-andrew {
+        margin: -60px auto 0;
+        padding: 83px 0 63px;
+        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/wood-bg.jpg') no-repeat top center;
+        background-size: cover;
+        color: #fff;
+
+        .boxed {
+            max-width: 53%;
+            margin: 0 auto;
+
+            .heading {
+                text-align: center;
+
+                h2 {
+                    margin-bottom: 35px;
+                    text-shadow: 0 1px 7px rgba(47, 87, 110, 0.37);
+                }
+            }
+
+            .content {
+                text-align: justify;
+            }
+        }
+    }
+
+    #our-services {
+        z-index: 2;
+        position: relative;
+        height: 408px;
+        margin-top: -2px;
+        padding: 50px 0;
+        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/chiro-office-bg.png') no-repeat top center;
+        background-size: cover;
+        color: #fff;
+
+        .boxed {
+            max-width: 78%;
+            margin: 0 auto;
+
+            .row {
+                .col-6 {
+                    margin-bottom: 15px;
+
+                    &:nth-child(even) {
+                        padding-left: 5%;
+                    }
+                }
+            }
+
+            .heading {
+                margin-bottom: 55px;
+            }
+
+            .image-title {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+
+                .service-image {
+                    img {
+                        width: 72px;
+                    }
+                }
+
+                .title {
+                    max-width: 115px;
+                    margin-left: 8px;
+
+                    h3 {
+                        margin: 0 0 7px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        line-height: 1.2;
+                    }
+                }
+            }
+        }
+    }
+
+    #testimonials {
+        margin-top: -45px;
+        padding: 90px 0 70px;
+        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/circle-bg.jpg') no-repeat top center;
+        background-size: cover;
+
+        .heading {
+            h2 {
+                color: #d2973b;
+            }
+        }
+
+        .slider-container {
+            width: 340px;
+            margin: 0 auto;
+
+            .slides {
+                padding: 0 15px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                .stars {
+                    img {
+                        width: 85px;
+                        margin: 0 auto 15px;
+                    }
+
+                    text-align: center;
+                }
+
+                .testimony {
+                    p {
+                        font-size: 8px;
+                        font-weight: 500;
+                        line-height: 14px;
+                    }
+
+                    letter-spacing: 0.26px;
+
+                    text-align: justify;
+                }
+            }
+        }
+
+        .paginator {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 35px;
+            text-align: center;
+
+            img.arrow {
+                width: 14.5px;
+                cursor: pointer;
+            }
+
+            .slick-slider-dots {
+                .slick-dots {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        width: 6px;
+                        height: 6px;
+                        margin: 0 3px;
+                        background: #d2973b;
+                        border-radius: 50px;
+                        list-style: none;
+                        cursor: pointer;
+
+                        &.slick-active {
+                            background: #2f576e;
+                        }
+
+                        &:first-child {
+                            margin-left: 7.5px;
+                        }
+
+                        &:last-child {
+                            margin-right: 7.5px;
+                        }
+
+                        button {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #our-partners {
+        margin-bottom: -2px;
+        padding: 40px 15px 45px;
+        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/wood-bg.jpg') no-repeat top center;
+        background-size: cover;
+        color: #fff;
+
+        .heading {
+            h2 {
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
 
 /**
  * Footer
  */
 
-#footer {}
+#colophon {
+    position: relative;
+    padding: 39.5px 25.5px;
+    background: #2f576e;
+    background-size: cover;
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+
+    p,
+    a {
+        font-size: 7px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/img-6179.png') no-repeat top center;
+        background-size: cover;
+    }
+
+    .box {
+        z-index: 10;
+        position: relative;
+    }
+
+    .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            .widget {
+                .widget-title {
+                    margin-top: 0;
+                    margin-bottom: 12.5px;
+                    color: #b98727;
+                    text-transform: uppercase;
+                }
+            }
+
+            &.footer-col-1,
+            &.footer-col-3 {
+                width: 65%;
+            }
+
+            &.footer-col-2,
+            &.footer-col-4 {
+                width: 35%;
+            }
+        }
+
+        .footer-col-1 {
+            position: relative;
+
+            .widget_media_image {
+                img {
+                    width: 155.5px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .phone-number {
+                display: flex;
+                align-items: center;
+                margin-top: 3px;
+                line-height: 1;
+
+                span {
+                    margin-right: 5px;
+                    padding: 2px 2px;
+                    background-color: #fff;
+                    color: #2f576e;
+                    font-size: 7px;
+                }
+
+                a {
+                    font-size: 12px;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                bottom: -10px;
+                left: -15px;
+                content: '';
+                display: block;
+                width: 312px;
+                height: 1.5px;
+                border-bottom: .5px solid #f5a623;
+            }
+        }
+
+        .footer-col-3 {
+            display: flex;
+            flex-wrap: wrap;
+
+            .widget_text {
+                flex: 1;
+
+                &+ :not(.widget-title) {
+                    margin-top: 26px;
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    background-color: $dark-grey-blue;
+    padding: 10px 20px;
+
+    p {
+        margin: 0;
+        font-family: 'Monaco';
+        color: #fff;
+        font-size: 7px;
+
+        a {
+            color: #fff;
+        }
+    }
+}
 
 /**
  * Media Queries
  */
 
-@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 645px) {
+    #content #about-andrew .boxed {
+        max-width: 70%;
+    }
+
+    #content #our-services .boxed .row .col-6:nth-child(even) {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 585px) {
+    #content #our-services .boxed {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #header {
+        padding: 7.5px 0;
+    }
+
+    #content #about-andrew .boxed {
+        max-width: 100%;
+    }
+
+    #content #our-services {
+        height: auto;
+    }
+
+    #content #our-services .boxed .heading {
+        margin-bottom: 25px;
+    }
+
+    #content #our-services .boxed .image-title {
+        justify-content: center;
+    }
+
+    #content #our-services .boxed .image-title .service-image img {
+        width: 50px;
+    }
+
+    #content #our-partners .row .col-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        text-align: center;
+    }
+
+    #colophon .footer-row:not(:last-child) {
+        margin-bottom: 0;
+        ;
+    }
+
+    #colophon .footer-row .footer-column {
+        margin-bottom: 20px;
+    }
+
+    #colophon .footer-row .footer-column,
+    #colophon .footer-row .footer-column.footer-col-1,
+    #colophon .footer-row .footer-column.footer-col-2,
+    #colophon .footer-row .footer-column.footer-col-3,
+    #colophon .footer-row .footer-column.footer-col-4 {
+        width: 100%;
+    }
+
+    #colophon .footer-row .footer-col-1::after {
+        display: none;
+    }
+
+    #colophon .footer-row .footer-column.footer-col-4 {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #header {
+        padding: 3px;
+    }
+
+    #header .header-row .site-branding,
+    #header .header-row .phone-number {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #header .header-row .site-branding {
+        margin-bottom: 5px;
+    }
+
+    #content #testimonials .slider-container {
+        width: 100%;
+    }
+}
