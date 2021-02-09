@@ -44,14 +44,6 @@
                     </div>
                 </div>
             </div>
-
-            <div id="banner">
-                <div class="banner-row">
-                    <div class="banner-col">
-                        <img src="http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/banner-image-1.png" alt="">
-                    </div>
-                </div>
-            </div>
-
+            
             <div id="main-content">
                 <main id="content">

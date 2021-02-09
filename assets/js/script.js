@@ -1,61 +1,43 @@
 ( function( $ ) {
+
     // Initialize the slick slider for Testimonial Section
     $(document).ready( function() {
         $( '.slider-container' ).slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
+            autoHeight: true,
             appendArrows: $('.paginator'),
             appendDots: '.slick-slider-dots',
-            nextArrow: '<img class="arrow" src="http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/next-icon.svg">',
-            prevArrow: '<img class="arrow" src="http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/prev-icon.svg">'
+            nextArrow: `<img class="arrow" src="${object_name.arrow_next}">`,
+            prevArrow: `<img class="arrow" src="${object_name.arrow_prev}">`
         });
 
-        // Scroll Reveal
+        // // Scroll Reveal
         ScrollReveal().reveal('.heading', {
             delay: 500,
             distance: '30px'
         });
 
         ScrollReveal().reveal('.content', {
-            delay: 700,
+            delay: 500,
             distance: '30px'
         });
 
         ScrollReveal().reveal('#our-services .service-image', {
-            delay: 700,
+            delay: 500,
             distance: '30px',
             origin: 'left'
         });
 
         ScrollReveal().reveal('#our-services .title', {
-            delay: 700,
+            delay: 500,
             distance: '30px',
             origin: 'right'
         });
 
-        ScrollReveal().reveal('#testimonials .stars', {
-            delay: 700,
-            distance: '30px',
-        });
-        
-        ScrollReveal().reveal('#testimonials .testimony', {
-            delay: 1200,
-            distance: '30px',
-        });
-
-        ScrollReveal().reveal('#testimonials .name', {
-            delay: 1400,
-            distance: '30px',
-        });
-
-        ScrollReveal().reveal('#testimonials .paginator', {
-            delay: 1600,
-            distance: '30px',
-        });
-
         ScrollReveal().reveal('#our-partners .partner-image', {
-            delay: 700,
+            delay: 500,
             distance: '30px',
         });
     })

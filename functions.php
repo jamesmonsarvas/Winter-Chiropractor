@@ -108,7 +108,11 @@ add_action( 'widgets_init', 'winterchiropractor_widget_init' );
  */
 
 function winterchiropractor_scripts() {
-    $ver = time();
+    if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+        $ver = time();
+    } else {
+        $ver = '1.0.0';
+    }
     // Styles
     wp_enqueue_style( 'winterchiropractor-style', get_stylesheet_uri(), array(), $ver);
     wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/assets/css/all.min.css', array(), $ver);
@@ -116,10 +120,17 @@ function winterchiropractor_scripts() {
 
     // Scripts
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array(), $ver, true );
+    wp_enqueue_script( 'winterchiropractor-script', get_template_directory_uri() . '/assets/js/script.js', array(), $ver, true );
     wp_enqueue_script( 'fontawesome-js', get_template_directory_uri() . '/assets/js/all.min.js', array(), $ver, true );
     wp_enqueue_script( 'slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), $ver, true );
     wp_enqueue_script( 'scrollreveal', 'https://unpkg.com/scrollreveal', array(), $ver, true );
+
+    // Localize the script with new data
+    $translation_array = array(
+        'arrow_prev' => __( get_template_directory_uri() . '/assets/images/prev-icon.svg' , 'winterchiropractor' ),
+        'arrow_next' => __( get_template_directory_uri() . '/assets/images/next-icon.svg' , 'winterchiropractor' ),
+    );
+    wp_localize_script( 'winterchiropractor-script', 'object_name', $translation_array );
 }
 add_action( 'wp_enqueue_scripts', 'winterchiropractor_scripts' );
 

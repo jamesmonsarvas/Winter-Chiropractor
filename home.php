@@ -8,27 +8,42 @@ get_header();
 
 // Variables
 
+/** Banner */
+
+$banner_bg = get_field( 'banner_bg' );
+
 /** About Andrew Hull */
 $ajh_header = ( get_field( 'ajh_heading' ) !== '' ) ? get_field( 'ajh_heading' ) : 'Your Title Here';
 $ajh_description = get_field( 'ajh_description' );
+$ajh_bg = get_field( 'ajh_bg' );
 
 /** Our Services */
 $os_heading = ( get_field( 'os_heading' ) !== '' ) ? get_field( 'os_heading' ) : 'Your Title Here';
 $os_services = get_field( 'os_services' );
+$os_bg = get_field( 'os_bg' );
 
 /** What People Are Saying */
 $wpas_heading = ( get_field( 'wpas_heading' ) !== '' ) ? get_field( 'wpas_heading' ) : 'Your Title Here';
 $wpas_testimonials = get_field( 'wpas_testimonials' );
+$wpas_bg = get_field( 'wpas_bg' );
 
 /** Our Trusted Partners */
 $otp_heading = ( get_field( 'otp_heading' ) !== '' ) ? get_field( 'otp_heading' ) : 'Your Title Here';
 $otp_partners = get_field( 'otp_partners' );
+$otp_bg = get_field( 'otp_bg' );
 
 ?>
 
+<div id="banner">
+    <div class="banner-row">
+        <div class="banner-bg" style="background: url(<?php echo $banner_bg['url'] ?>) no-repeat top center;"></div>
+    </div>
+</div>
+
+
 <?php if ( $ajh_description !== '' ) : // check if the desciprtion is not empty ?>
     <!-- Output the ACF Values -->
-    <div id="about-andrew">
+    <div id="about-andrew" style="background: url(<?php echo $ajh_bg['url'] ?>) no-repeat top center;">
         <div class="container">
             <div class="boxed">
                 <div class="row">
@@ -48,7 +63,7 @@ $otp_partners = get_field( 'otp_partners' );
 
 <?php if ( $os_services ) : // Check if the ACF Field is empty or not (Boolean) ?>
     <!-- Output the ACF Values -->
-    <div id="our-services">
+    <div id="our-services" style="background: url(<?php echo $os_bg['url'] ?>) no-repeat top center;">
         <div class="container">
             <div class="boxed">
                 <div class="row">
@@ -80,7 +95,7 @@ $otp_partners = get_field( 'otp_partners' );
 
 <?php if ( $wpas_testimonials ) : // Check if the ACF Field is empty or not (Boolean) ?>
     <!-- Output the ACF Values -->
-    <div id="testimonials">
+    <div id="testimonials" style="background: url(<?php echo $wpas_bg['url'] ?>) no-repeat top center;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -113,7 +128,7 @@ $otp_partners = get_field( 'otp_partners' );
 
 <?php if ( $otp_partners ) : // Check if the ACF Field is empty or not (Boolean) ?>
     <!-- Output the ACF Values -->
-    <div id="our-partners">
+    <div id="our-partners" style="background: url(<?php echo $otp_bg['url'] ?>) no-repeat top center;">
         <div class="container">
             <div class="row">
                 <div class="col-12">

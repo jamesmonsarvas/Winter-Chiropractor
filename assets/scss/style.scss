@@ -22,15 +22,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * Defaults/Glboal
  */
 
+// Variables
+
+$dark-blue-grey: #0d1f2d;
+$dark-grey-blue: #274657;
+
 html,
 body {
     position: relative;
     height: auto;
     font-family: 'Raleway', sans-serif;
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 400;
-    letter-spacing: 0.4px;
-    line-height: 13px;
+    line-height: 2;
 }
 
 * {
@@ -42,14 +46,9 @@ a {
     text-decoration: none;
 }
 
-body {
-    width: 100%;
-    max-width: 715px;
-    margin: 0 auto;
-}
-
 p {
     margin-top: 0;
+    letter-spacing: 0.4px;
 }
 
 h1,
@@ -60,19 +59,19 @@ h5,
 h6 {
     margin-top: 0;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 50px;
 }
 
 h2 {
-    font-size: 23px;
+    font-size: 46px;
 }
 
 h3 {
-    font-size: 12px;
+    font-size: 24px;
 }
 
 h4 {
@@ -178,39 +177,36 @@ img {
         position: absolute;
         top: 0;
         left: 0;
-        width: 45px;
+        width: 70px;
         height: 100%;
         padding: 13.5px 12.5px;
         background-color: #0d1f2d;
 
         .hamburder-menu {
             position: fixed;
+            text-align: center;
 
             a {
                 span {
                     display: block;
                     color: #9b9b9b;
                     font-family: Helvetica;
-                    font-size: 7px;
                     font-weight: 300;
                     text-transform: uppercase;
-                }
-
-                img {
-                    max-width: 22px;
                 }
             }
         }
     }
 
     .content-wrapper {
-        width: calc(100% - 45px);
-        margin-left: 45px;
+        width: calc(100% - 70px);
+        margin-left: 70px;
     }
 }
 
 .container {
     width: 100%;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -247,7 +243,7 @@ img {
         top: 5%;
         right: 5%;
         color: #fff;
-        font-size: 15px;
+        font-size: 45px;
         font-weight: 600;
         cursor: pointer;
     }
@@ -260,12 +256,12 @@ img {
 
         li {
             &:not(:last-child) {
-                margin-bottom: 5px;
+                margin-bottom: 15px;
             }
 
             a {
                 color: #fff;
-                font-size: 20px;
+                font-size: 30px;
                 line-height: 1.2;
                 text-transform: uppercase;
             }
@@ -274,10 +270,11 @@ img {
 }
 
 #header {
+    z-index: 10;
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - 45px);
+    width: calc(100% - 70px);
     padding: 7.5px 25.5px;
     background-color: rgba(255, 255, 255, 0.17);
 
@@ -293,14 +290,16 @@ img {
 
         .site-branding {
 
-            .site-logo img {
-                width: 145px;
-                height: 33px;
-            }
-
             .site-title,
             .site-description {
                 display: none;
+            }
+
+            .site-logo {
+                a {
+                    display: flex;
+                    align-items: center;
+                }
             }
         }
 
@@ -309,7 +308,7 @@ img {
 
             a {
                 color: #fff;
-                font-size: 10px;
+                font-size: 20px;
                 font-weight: 400;
                 letter-spacing: 0.35px;
                 text-transform: uppercase;
@@ -330,24 +329,41 @@ img {
 
 #content {
 
+    .banner-bg,
     #about-andrew,
     #our-services,
     #testimonials,
     #our-partners {
+        display: flex;
+        align-items: center;
+        background-size: cover !important;
+
         .heading {
             text-align: center;
         }
     }
 
+    #banner {
+        z-index: 2;
+        position: relative;
+
+        .banner-bg {
+            height: 125vh;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 50% 100%, 0 calc(100% - 60px));
+            -webkit-box-shadow: 0 -6.5px 10.5px 0 rgba(0, 0, 0, .8);
+            box-shadow: 0 6.8px 10.5px 0 rgba(0, 0, 0, .5);
+        }
+    }
+
     #about-andrew {
-        margin: -60px auto 0;
-        padding: 83px 0 63px;
-        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/wood-bg.jpg') no-repeat top center;
-        background-size: cover;
+        position: relative;
+        height: 90vh;
+        margin: -10% auto 0;
+        padding: 15em 0 5em;
         color: #fff;
 
         .boxed {
-            max-width: 53%;
+            max-width: 37.5%;
             margin: 0 auto;
 
             .heading {
@@ -368,15 +384,15 @@ img {
     #our-services {
         z-index: 2;
         position: relative;
-        height: 408px;
         margin-top: -2px;
-        padding: 50px 0;
-        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/chiro-office-bg.png') no-repeat top center;
-        background-size: cover;
+        padding: 10em 0;
         color: #fff;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 50% 100%, 0 calc(100% - 60px));
+        -webkit-box-shadow: 0 -6.5px 10.5px 0 rgba(0, 0, 0, .8);
+        box-shadow: 0 6.8px 10.5px 0 rgba(0, 0, 0, .5);
 
         .boxed {
-            max-width: 78%;
+            max-width: 55%;
             margin: 0 auto;
 
             .row {
@@ -384,7 +400,7 @@ img {
                     margin-bottom: 15px;
 
                     &:nth-child(even) {
-                        padding-left: 5%;
+                        padding-left: 7%;
                     }
                 }
             }
@@ -398,22 +414,12 @@ img {
                 flex-wrap: wrap;
                 align-items: center;
 
-                .service-image {
-                    img {
-                        width: 72px;
-                    }
-                }
-
                 .title {
-                    max-width: 115px;
+                    max-width: 200px;
                     margin-left: 8px;
 
                     h3 {
-                        margin: 0 0 7px;
-                        font-size: 12px;
-                        font-weight: 600;
                         text-transform: uppercase;
-                        line-height: 1.2;
                     }
                 }
             }
@@ -421,10 +427,9 @@ img {
     }
 
     #testimonials {
-        margin-top: -45px;
-        padding: 90px 0 70px;
-        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/circle-bg.jpg') no-repeat top center;
-        background-size: cover;
+        position: relative;
+        margin-top: -90px;
+        padding: 15em 0 10em;
 
         .heading {
             h2 {
@@ -433,7 +438,7 @@ img {
         }
 
         .slider-container {
-            width: 340px;
+            width: 41%;
             margin: 0 auto;
 
             .slides {
@@ -445,22 +450,14 @@ img {
 
                 .stars {
                     img {
-                        width: 85px;
-                        margin: 0 auto 15px;
+                        width: auto;
+                        margin: 0 auto 30px;
                     }
 
                     text-align: center;
                 }
 
                 .testimony {
-                    p {
-                        font-size: 8px;
-                        font-weight: 500;
-                        line-height: 14px;
-                    }
-
-                    letter-spacing: 0.26px;
-
                     text-align: justify;
                 }
             }
@@ -474,7 +471,7 @@ img {
             text-align: center;
 
             img.arrow {
-                width: 14.5px;
+                width: 35px;
                 cursor: pointer;
             }
 
@@ -488,9 +485,9 @@ img {
                     padding: 0;
 
                     li {
-                        width: 6px;
-                        height: 6px;
-                        margin: 0 3px;
+                        width: 12px;
+                        height: 12px;
+                        margin: 0 8px;
                         background: #d2973b;
                         border-radius: 50px;
                         list-style: none;
@@ -501,11 +498,11 @@ img {
                         }
 
                         &:first-child {
-                            margin-left: 7.5px;
+                            margin-left: 15px;
                         }
 
                         &:last-child {
-                            margin-right: 7.5px;
+                            margin-right: 15px;
                         }
 
                         button {
@@ -519,15 +516,17 @@ img {
 
     #our-partners {
         margin-bottom: -2px;
-        padding: 40px 15px 45px;
-        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/wood-bg.jpg') no-repeat top center;
-        background-size: cover;
+        padding: 10em 0;
         color: #fff;
 
         .heading {
             h2 {
-                margin-bottom: 32px;
+                margin-bottom: 50px;
             }
+        }
+
+        .partner-image {
+            text-align: center;
         }
     }
 }
@@ -538,18 +537,13 @@ img {
 
 #colophon {
     position: relative;
-    padding: 39.5px 25.5px;
+    padding: 80px 0;
     background: #2f576e;
     background-size: cover;
     color: #fff;
 
     a {
         color: #fff;
-    }
-
-    p,
-    a {
-        font-size: 7px;
     }
 
     ul {
@@ -559,21 +553,9 @@ img {
 
         li {
             &:not(:last-child) {
-                margin-bottom: 5px;
+                margin-bottom: 10px;
             }
         }
-    }
-
-    &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: url('http://localhost/winterchiropractor_wp/wp-content/uploads/2021/02/img-6179.png') no-repeat top center;
-        background-size: cover;
     }
 
     .box {
@@ -586,14 +568,14 @@ img {
         flex-wrap: wrap;
 
         &:not(:last-child) {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .footer-column {
             .widget {
                 .widget-title {
                     margin-top: 0;
-                    margin-bottom: 12.5px;
+                    margin-bottom: 20px;
                     color: #b98727;
                     text-transform: uppercase;
                 }
@@ -613,11 +595,8 @@ img {
         .footer-col-1 {
             position: relative;
 
-            .widget_media_image {
-                img {
-                    width: 155.5px;
-                    margin-bottom: 10px;
-                }
+            img {
+                margin-bottom: 20px;
             }
 
             .phone-number {
@@ -631,23 +610,23 @@ img {
                     padding: 2px 2px;
                     background-color: #fff;
                     color: #2f576e;
-                    font-size: 7px;
+                    font-size: 20px;
                 }
 
                 a {
-                    font-size: 12px;
+                    font-size: 24px;
                 }
             }
 
             &::after {
                 position: absolute;
-                bottom: -10px;
-                left: -15px;
+                bottom: -25px;
+                left: -25px;
                 content: '';
                 display: block;
-                width: 312px;
-                height: 1.5px;
-                border-bottom: .5px solid #f5a623;
+                width: 95%;
+                height: 2.5px;
+                border-bottom: 2.5px solid #f5a623;
             }
         }
 
@@ -659,7 +638,7 @@ img {
                 flex: 1;
 
                 &+ :not(.widget-title) {
-                    margin-top: 26px;
+                    margin-top: 50px;
                 }
             }
         }
@@ -668,13 +647,12 @@ img {
 
 .copyright {
     background-color: $dark-grey-blue;
-    padding: 10px 20px;
+    padding: 20px 0;
 
     p {
         margin: 0;
         font-family: 'Monaco';
         color: #fff;
-        font-size: 7px;
 
         a {
             color: #fff;
@@ -686,23 +664,46 @@ img {
  * Media Queries
  */
 
-@media only screen and (max-width: 645px) {
+@media only screen and (max-width: 1615px) {
+    #content #our-services .boxed {
+        max-width: 65%;
+    }
+
+    #colophon .footer-row .footer-col-1::after {
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    #content #banner .banner-bg {
+        height: 100vh;
+    }
+
+    #content #about-andrew .boxed {
+        max-width: 50%;
+    }
+
+    #content #our-services .boxed {
+        max-width: 75%;
+    }
+
+    #content #testimonials .slider-container {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1220px) {
+
     #content #about-andrew .boxed {
         max-width: 70%;
     }
 
-    #content #our-services .boxed .row .col-6:nth-child(even) {
-        padding-left: 0;
-    }
-}
-
-@media only screen and (max-width: 585px) {
     #content #our-services .boxed {
-        max-width: 100%;
+        max-width: 90%;
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1030px) {
 
     .col-1,
     .col-2,
@@ -720,51 +721,117 @@ img {
         max-width: 100%;
     }
 
-    #header {
-        padding: 7.5px 0;
-    }
-
-    #content #about-andrew .boxed {
+    #content #about-andrew .boxed,
+    #content #our-services .boxed {
         max-width: 100%;
     }
 
-    #content #our-services {
-        height: auto;
-    }
-
-    #content #our-services .boxed .heading {
-        margin-bottom: 25px;
+    #content #our-services .boxed .row .col-6:nth-child(even) {
+        padding-left: 0;
     }
 
     #content #our-services .boxed .image-title {
         justify-content: center;
     }
 
-    #content #our-services .boxed .image-title .service-image img {
-        width: 50px;
+    #content #testimonials .slider-container {
+        width: 100%;
     }
 
     #content #our-partners .row .col-3 {
         flex: 0 0 50%;
         max-width: 50%;
-        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .container-wrapper {
+        margin-top: 50px;
+    }
+
+    .container-wrapper .side-menu {
+        z-index: 999;
+        position: fixed;
+        width: 100%;
+    }
+
+    #header,
+    .container-wrapper .content-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .container-wrapper .side-menu {
+        padding: 14px 20px;
+    }
+
+    .container-wrapper .side-menu .hamburder-menu {
+        position: unset;
+        width: 50px;
+    }
+
+    .container-wrapper .side-menu .hamburder-menu a {
+        display: flex;
+        align-items: center;
+    }
+
+    .container-wrapper .side-menu .hamburder-menu a>img {
+        width: 25px;
+    }
+
+    .container-wrapper .side-menu .hamburder-menu a>span {
+        margin-left: 10px;
+        line-height: 1;
+    }
+
+    .container-wrapper .side-menu {
+        height: auto;
+    }
+
+    #header {
+        padding: 10px 0;
+    }
+
+    #header .header-row .site-branding,
+    #header .header-row .phone-number {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #header .header-row .phone-number {
+        text-align: left;
+    }
+
+    #content #banner .banner-bg {
+        height: 85vh;
+    }
+
+    #content #about-andrew {
+        margin: -12% 0 0;
+        padding: 10em 0 5em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #content #about-andrew {
+        margin: -15% 0 0;
     }
 
     #colophon .footer-row:not(:last-child) {
         margin-bottom: 0;
-        ;
     }
 
-    #colophon .footer-row .footer-column {
-        margin-bottom: 20px;
-    }
-
-    #colophon .footer-row .footer-column,
     #colophon .footer-row .footer-column.footer-col-1,
     #colophon .footer-row .footer-column.footer-col-2,
     #colophon .footer-row .footer-column.footer-col-3,
     #colophon .footer-row .footer-column.footer-col-4 {
         width: 100%;
+    }
+
+    #colophon .footer-row .footer-column {
+        margin-bottom: 50px;
     }
 
     #colophon .footer-row .footer-col-1::after {
@@ -774,34 +841,8 @@ img {
     #colophon .footer-row .footer-column.footer-col-4 {
         margin-bottom: 0;
     }
-}
 
-@media only screen and (max-width: 415px) {
-
-    h1 {
-        font-size: 20px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    #header {
-        padding: 3px;
-    }
-
-    #header .header-row .site-branding,
-    #header .header-row .phone-number {
-        flex: 0 0 100%;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    #header .header-row .site-branding {
-        margin-bottom: 5px;
-    }
-
-    #content #testimonials .slider-container {
-        width: 100%;
+    .copyright p {
+        font-size: 14px;
     }
 }
