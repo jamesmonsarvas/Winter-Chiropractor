@@ -14,7 +14,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <p>© 2020 All rights reserved. <a href="#">Winter Park Chiropractor.</a></p>
+                            <p><?php echo sprintf( '%s %s', esc_html__( '&copy; 2020 All rights reserved.', 'winterchiropractor' ), get_bloginfo( 'title' ) ); ?></p>
                         </div>
                     </div>
                 </div>

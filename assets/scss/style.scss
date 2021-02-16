@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: Winter Chiropractor
 Theme URI: https://github.com/jamesmonsarvas/Winter-Chiropractor
 Author: James Monsarvas
@@ -177,9 +177,11 @@ img {
         position: absolute;
         top: 0;
         left: 0;
-        width: 70px;
+        display: flex;
+        justify-content: center;
+        width: 90px;
         height: 100%;
-        padding: 13.5px 12.5px;
+        padding: 25px 25px;
         background-color: #0d1f2d;
 
         .hamburder-menu {
@@ -187,20 +189,23 @@ img {
             text-align: center;
 
             a {
+
                 span {
                     display: block;
                     color: #9b9b9b;
-                    font-family: Helvetica;
+                    font-family: Helvetica, 'Raleway', sans-serif;
+                    font-size: 14px;
                     font-weight: 300;
                     text-transform: uppercase;
+                    line-height: 1;
                 }
             }
         }
     }
 
     .content-wrapper {
-        width: calc(100% - 70px);
-        margin-left: 70px;
+        width: calc(100% - 90px);
+        margin-left: 90px;
     }
 }
 
@@ -240,11 +245,13 @@ img {
 
     .close {
         position: absolute;
-        top: 5%;
-        right: 5%;
+        top: 3%;
+        right: 3%;
         color: #fff;
+        width: 50px;
         font-size: 45px;
         font-weight: 600;
+        line-height: 1.2;
         cursor: pointer;
     }
 
@@ -274,8 +281,8 @@ img {
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - 70px);
-    padding: 7.5px 25.5px;
+    width: calc(100% - 90px);
+    padding: 13px 0;
     background-color: rgba(255, 255, 255, 0.17);
 
     .header-row {
@@ -308,8 +315,9 @@ img {
 
             a {
                 color: #fff;
+                font-family: sans-serif, 'Raleway';
                 font-size: 20px;
-                font-weight: 400;
+                font-weight: 300;
                 letter-spacing: 0.35px;
                 text-transform: uppercase;
             }
@@ -348,18 +356,14 @@ img {
         position: relative;
 
         .banner-bg {
-            height: 125vh;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 50% 100%, 0 calc(100% - 60px));
-            -webkit-box-shadow: 0 -6.5px 10.5px 0 rgba(0, 0, 0, .8);
-            box-shadow: 0 6.8px 10.5px 0 rgba(0, 0, 0, .5);
+            height: 115vh;
         }
     }
 
     #about-andrew {
         position: relative;
-        height: 90vh;
         margin: -10% auto 0;
-        padding: 15em 0 5em;
+        padding: 20em 0 10em;
         color: #fff;
 
         .boxed {
@@ -370,7 +374,7 @@ img {
                 text-align: center;
 
                 h2 {
-                    margin-bottom: 35px;
+                    margin-bottom: 50px;
                     text-shadow: 0 1px 7px rgba(47, 87, 110, 0.37);
                 }
             }
@@ -387,9 +391,6 @@ img {
         margin-top: -2px;
         padding: 10em 0;
         color: #fff;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 50% 100%, 0 calc(100% - 60px));
-        -webkit-box-shadow: 0 -6.5px 10.5px 0 rgba(0, 0, 0, .8);
-        box-shadow: 0 6.8px 10.5px 0 rgba(0, 0, 0, .5);
 
         .boxed {
             max-width: 55%;
@@ -420,6 +421,7 @@ img {
 
                     h3 {
                         text-transform: uppercase;
+                        line-height: 1.5;
                     }
                 }
             }
@@ -471,7 +473,7 @@ img {
             text-align: center;
 
             img.arrow {
-                width: 35px;
+                width: 30px;
                 cursor: pointer;
             }
 
@@ -516,12 +518,12 @@ img {
 
     #our-partners {
         margin-bottom: -2px;
-        padding: 10em 0;
+        padding: 7em 0 6em;
         color: #fff;
 
         .heading {
             h2 {
-                margin-bottom: 50px;
+                margin-bottom: 80px;
             }
         }
 
@@ -596,6 +598,8 @@ img {
             position: relative;
 
             img {
+                width: 300px;
+                max-width: 300px;
                 margin-bottom: 20px;
             }
 
@@ -606,15 +610,18 @@ img {
                 line-height: 1;
 
                 span {
-                    margin-right: 5px;
+                    margin-right: 10px;
                     padding: 2px 2px;
                     background-color: #fff;
+                    border-radius: 2px;
                     color: #2f576e;
                     font-size: 20px;
                 }
 
                 a {
                     font-size: 24px;
+                    font-family: sans-serif, 'Raleway';
+                    font-weight: 300;
                 }
             }
 
@@ -637,8 +644,9 @@ img {
             .widget_text {
                 flex: 1;
 
-                &+ :not(.widget-title) {
-                    margin-top: 50px;
+                .textwidget {
+                    column-count: 2;
+                    column-gap: 10px;
                 }
             }
         }
@@ -648,10 +656,10 @@ img {
 .copyright {
     background-color: $dark-grey-blue;
     padding: 20px 0;
+    font-family: 'Monaco', 'Raleway', sans-serif;
 
     p {
         margin: 0;
-        font-family: 'Monaco';
         color: #fff;
 
         a {
@@ -664,9 +672,27 @@ img {
  * Media Queries
  */
 
+@media only screen and (max-width: 1700px) {
+    .container {
+        max-width: 1360px;
+    }
+
+    #content #about-andrew .boxed {
+        max-width: 55%;
+    }
+
+    #content #our-services .boxed {
+        max-width: 70%;
+    }
+
+    #content #testimonials .slider-container {
+        width: 50%;
+    }
+}
+
 @media only screen and (max-width: 1615px) {
     #content #our-services .boxed {
-        max-width: 65%;
+        max-width: 75%;
     }
 
     #colophon .footer-row .footer-col-1::after {
@@ -675,16 +701,12 @@ img {
 }
 
 @media only screen and (max-width: 1400px) {
-    #content #banner .banner-bg {
-        height: 100vh;
-    }
-
     #content #about-andrew .boxed {
-        max-width: 50%;
+        max-width: 65%;
     }
 
     #content #our-services .boxed {
-        max-width: 75%;
+        max-width: 80%;
     }
 
     #content #testimonials .slider-container {
@@ -699,7 +721,7 @@ img {
     }
 
     #content #our-services .boxed {
-        max-width: 90%;
+        max-width: 100%;
     }
 }
 
@@ -746,6 +768,14 @@ img {
 
 @media only screen and (max-width: 767px) {
 
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
     .container-wrapper {
         margin-top: 50px;
     }
@@ -754,6 +784,7 @@ img {
         z-index: 999;
         position: fixed;
         width: 100%;
+        justify-content: flex-start;
     }
 
     #header,
@@ -803,13 +834,17 @@ img {
         text-align: left;
     }
 
-    #content #banner .banner-bg {
-        height: 85vh;
-    }
-
     #content #about-andrew {
         margin: -12% 0 0;
         padding: 10em 0 5em;
+    }
+
+    #content #our-services {
+        padding: 5em 0;
+    }
+
+    #content #testimonials {
+        padding: 11em 0 7em;
     }
 }
 
@@ -844,5 +879,29 @@ img {
 
     .copyright p {
         font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #content #our-services .boxed .image-title>div {
+        width: 100%;
+        text-align: center;
+    }
+
+    #content #our-partners .row {
+        justify-content: center;
+    }
+
+    #content #our-partners .row .col-3 {
+        flex: 0 0 80%;
+        max-width: 80%;
+    }
+
+    #content #our-partners .heading h2 {
+        margin-bottom: 40px;
+    }
+
+    .copyright p {
+        font-size: 12px;
     }
 }

@@ -9,8 +9,8 @@
             autoHeight: true,
             appendArrows: $('.paginator'),
             appendDots: '.slick-slider-dots',
-            nextArrow: `<img class="arrow" src="${object_name.arrow_next}">`,
-            prevArrow: `<img class="arrow" src="${object_name.arrow_prev}">`
+            nextArrow: `<img class="arrow" src="${slickArrows.arrowNext}">`,
+            prevArrow: `<img class="arrow" src="${slickArrows.arrowPrev}">`
         });
 
         // // Scroll Reveal

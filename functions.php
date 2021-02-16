@@ -22,6 +22,14 @@ if ( ! function_exists( 'winterchiropractor_setup' ) ) :
     * support post thumbnails.
     */
     function winterchiropractor_setup() {
+
+        /**
+        * Let WordPress manage the document title.
+        * By adding theme support, we declare that this theme does not use a
+        * hard-coded <title> tag in the document head, and expect WordPress to
+        * provide it for us.
+        */
+        add_theme_support( 'title-tag' );
         
         /**
         * Enable support for post thumbnails and featured images.
@@ -127,10 +135,10 @@ function winterchiropractor_scripts() {
 
     // Localize the script with new data
     $translation_array = array(
-        'arrow_prev' => __( get_template_directory_uri() . '/assets/images/prev-icon.svg' , 'winterchiropractor' ),
-        'arrow_next' => __( get_template_directory_uri() . '/assets/images/next-icon.svg' , 'winterchiropractor' ),
+        'arrowPrev' => __( get_template_directory_uri() . '/assets/images/prev-icon.svg' , 'winterchiropractor' ),
+        'arrowNext' => __( get_template_directory_uri() . '/assets/images/next-icon.svg' , 'winterchiropractor' ),
     );
-    wp_localize_script( 'winterchiropractor-script', 'object_name', $translation_array );
+    wp_localize_script( 'winterchiropractor-script', 'slickArrows', $translation_array );
 }
 add_action( 'wp_enqueue_scripts', 'winterchiropractor_scripts' );
 
@@ -144,3 +152,30 @@ remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
 add_action( 'shutdown', function() {
    while ( @ob_end_flush() );
 } );
+
+/**
+ * Register new Section in Customizer
+ */
+
+function winterchiropractor_customizer( $wp_customize ) {
+
+    // Add new section in Customizer
+    $wp_customize->add_section('winterchiropractor_header', array(
+        'title'    => __('Header', 'winterchiropractor'),
+        'description' => '',
+        'priority' => 90,
+    ));
+
+    $wp_customize->add_setting('winterchiropractor_contact', array(
+        'default'    => '',
+        'capability' => 'edit_theme_options',
+        'type'       => 'option',
+    ));
+  
+    $wp_customize->add_control('winterchiropractor_contact', array(
+        'label'    => __('Contact', 'winterchiropractor'),
+        'section'  => 'winterchiropractor_header',
+        'settings' => 'winterchiropractor_contact',
+    ));
+}
+add_action( 'customize_register', 'winterchiropractor_customizer' );
